@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+output
+dist/*.txt
+.env
+*.main.js
