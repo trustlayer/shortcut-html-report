@@ -1,0 +1,17 @@
+name: 'Shortcut Iteration Report'
+description: 'Generates a report given a specific workflow state from shortcut'
+inputs:
+  iterationId:
+    description: 'Name/version of the iteration'
+    required: true
+    default: ''
+  worflowStateId:
+    description: 'The id of the workflow you want to get the data'
+    required: true
+    default: ''
+outputs:
+  reportPath:
+    description: 'Path of the generated html'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
