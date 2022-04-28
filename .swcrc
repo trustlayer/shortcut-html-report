@@ -2,8 +2,7 @@
     "jsc": {
       "parser": {
         "syntax": "ecmascript",
-        "jsx": false,
-        "topLevelAwait": true
+        "jsx": false
       },
       "target": "es2015",
       "loose": false,

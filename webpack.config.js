@@ -5,11 +5,8 @@ module.exports = {
 	entry: './src/index.js',
 	mode: 'production',
 	target: 'node',
-	experiments: {
-		topLevelAwait: true,
-	},
 	output: {
-		filename: 'main.js',
+		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 	optimization: {
