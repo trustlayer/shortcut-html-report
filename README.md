@@ -33,5 +33,5 @@ with:
   iterationId: '1.2.34'
   worflowStateId: '5050594904'
 env:
-  SLACK_WEBHOOK_URL: ${{ secrets.SC_TOKEN }}
+  SC_TOKEN: ${{ secrets.SC_TOKEN }}
 ```
