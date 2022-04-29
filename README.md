@@ -4,7 +4,7 @@ This action gives you an HTML with all the issues in "Deployed to production" st
 
 ## Inputs
 
-## `iterationId`
+### `iterationId`
 
 **Required** String for the name of the iteration (can be only a part of it)
 example:
@@ -15,13 +15,13 @@ example:
        ___________________|
 input: 1.2.3
 ```
-## `worflowStateId`
+### `worflowStateId`
 
 **Required** The id of the workflow you want to get the data
 
 ## Outputs
 
-## `reportPath`
+### `reportPath`
 
 Html Report path
 
