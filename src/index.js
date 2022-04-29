@@ -1,7 +1,7 @@
 import { env } from 'process';
 import fetch from 'node-fetch';
 import core from '@actions/core';
-import { mkdirP } from '@actions/io';
+import io from '@actions/io';
 import { writeFileSync } from 'fs';
 
 import homeTemplate from './templates/index.hbs';
@@ -36,7 +36,7 @@ async function getSC(path) {
   return await res.json();
 }
 
-async function setup() {
+async function run() {
   const iterationId = core.getInput('iterationId');
   const worflowStateId = core.getInput('worflowStateId');
 
@@ -59,7 +59,7 @@ async function setup() {
       tasks: data,
     });
 
-    mkdirP(OUTPUT_PATH);
+    io.mkdirP(OUTPUT_PATH);
 
     writeFileSync(generatedHtml, generatedHtml);
 
@@ -70,4 +70,4 @@ async function setup() {
   }
 }
 
-export default setup;
+run();
