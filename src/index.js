@@ -61,7 +61,7 @@ async function setup() {
 
     mkdirP(OUTPUT_PATH);
 
-    writeFileSync(generatedHtml, generatedHtml);
+    writeFileSync(OUTPUT_PATH, generatedHtml);
 
     core.setOutput(OUTPUT_PATH);
   } catch (error) {
