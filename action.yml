@@ -1,5 +1,8 @@
 name: 'Shortcut Iteration Report'
 description: 'Generates a report given a specific workflow state from shortcut'
+branding:
+  icon: arrow-down-circle
+  color: orange
 inputs:
   iterationId:
     description: 'Name/version of the iteration'
