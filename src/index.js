@@ -40,14 +40,13 @@ async function run() {
   const iterationId = core.getInput('iterationId');
   const worflowStateId = core.getInput('worflowStateId');
 
+  try {
   const iterations = await getSC(FETCH_ITERATIONS_URL);
   const iteration = iterations.find(e => e.name.includes(iterationId));
 
   if (!iteration?.id) {
     core.setFailed('Iteration ID not found');
   }
-
-  try {
     const data = await postSC(FETCH_STORIES_URL, {
       body: JSON.stringify({
         iteration_id: iteration?.id,
