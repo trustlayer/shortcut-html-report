@@ -1,7 +1,7 @@
 import { env } from 'process';
 import fetch from 'node-fetch';
-import core from '@actions/core';
-import io from '@actions/io';
+import * as core from '@actions/core';
+import * as io from '@actions/io';
 import { writeFileSync } from 'fs';
 
 import homeTemplate from './templates/index.hbs';
@@ -9,7 +9,8 @@ import homeTemplate from './templates/index.hbs';
 // Constants
 const FETCH_STORIES_URL = 'https://api.app.shortcut.com/api/v3/stories/search';
 const FETCH_ITERATIONS_URL = 'https://api.app.shortcut.com/api/v3/iterations';
-const OUTPUT_PATH = '.sc_report/output';
+const FOLDER_OUTPUT_PATH = '.sc_report/output';
+const OUTPUT_PATH = `${OUTPUT_PATH}/shortcut_report.html`
 
 async function postSC(path, body = {}) {
   const res = await fetch(path, {
@@ -37,8 +38,11 @@ async function getSC(path) {
 }
 
 async function run() {
-  const iterationId = core.getInput('iterationId');
-  const worflowStateId = core.getInput('worflowStateId');
+  const iterationId = core.getInput('iterationId', { required: true });
+  const worflowStateId = core.getInput('worflowStateId', { required: true });
+
+  core.debug(`Configuration:\n${JSON.stringify({iterationId,worflowStateId}, undefined, 2)}`);
+  core.debug(`token exist: ${env.SC_TOKEN.length === 36}`)
 
   try {
   const iterations = await getSC(FETCH_ITERATIONS_URL);
@@ -58,7 +62,7 @@ async function run() {
       tasks: data,
     });
 
-    io.mkdirP(OUTPUT_PATH);
+    await io.mkdirP(FOLDER_OUTPUT_PATH);
 
     writeFileSync(OUTPUT_PATH, generatedHtml);
 
