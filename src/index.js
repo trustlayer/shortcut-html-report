@@ -10,7 +10,7 @@ import homeTemplate from './templates/index.hbs';
 const FETCH_STORIES_URL = 'https://api.app.shortcut.com/api/v3/stories/search';
 const FETCH_ITERATIONS_URL = 'https://api.app.shortcut.com/api/v3/iterations';
 const FOLDER_OUTPUT_PATH = '.sc_report/output';
-const OUTPUT_PATH = `${OUTPUT_PATH}/shortcut_report.html`
+const OUTPUT_PATH = `${FOLDER_OUTPUT_PATH}/shortcut_report.html`;
 
 async function postSC(path, body = {}) {
   const res = await fetch(path, {
