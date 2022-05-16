@@ -10,7 +10,7 @@ This action gives you an HTML with all the issues in "Deployed to production" st
 example:
 
 ```sh
-"My awesome iteration v.1.2.3"
+"My awesome iteration v1.2.3"
                         ^---^  This works
        ___________________|
 input: 1.2.3
